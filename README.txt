@@ -1,3 +1,4 @@
+//中文版说明：https://github.com/hzhbest/winautohide/blob/master/README_cn.txt
 This is a tiny utility that utilizes 4 shortcut keys (Win+Left, Win+Right, Win+Up, Win+Down) to hide windows to screen sides.
  
 This utility can be useful if you have a few small windows that you use often (for example a terminal or a command prompt) and you want to access them quickly just by moving the mouse.
