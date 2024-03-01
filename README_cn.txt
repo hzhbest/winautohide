@@ -1,34 +1,25 @@
-This is a tiny utility that will add  an icon in the notification area of the
-Windows  taskbar,  and  add  4  shortcut  keys (Windows+Left,  Windows+Right,
-Windows+Up, Windows+Down).
+这个小脚本通过四个快捷键（Win键+【上下左右】方向键）将当前窗口隐藏到屏幕边缘。
 
-When  you  press one of  the shortcuts  (say Windows+Right  for example), the
-currently active window will "hide" to the right edge of your screen, showing
-only  one  pixel of its border.  It will also  stay  "always on top" of other
-windows,  so you will  always see this one pixel border.  Then when you hover
-your mouse on that border,  the window will appear and take the focus, so you
-can use it.  When you move back your mouse away from the window, it will hide
-again.
+如果你经常需要用到某些小窗口（例如记事本、命令行等）又想简单滑动鼠标就可以调出这些小窗口，这小脚本对你会有用。
 
-In  effect the window will act like  the Windows taskbar when the "auto-hide"
-setting is checked, or other similar bars (eg. the Google Desktop "sidebar").
+在激活想要隐藏的窗口后，按下其中一个快捷键（例如 Win键+右方向键），这窗口就会按所按的方向键自动隐藏到屏幕边缘（例如上述例子中会隐藏到右边）。这自动隐藏窗口会保持最顶并在屏幕边缘留下一像素的窗边。当鼠标指针触及这窗边的时候，该自动隐藏窗口就会重新出现并取得焦点供你使用；当鼠标指针移出该窗口时它又会重新隐藏。
 
-This utility can be useful if you have a few small windows that you use often
-(for  example  a terminal or  a command prompt)  and  you want to access them
-quickly just by moving the mouse.
+就如你在使用自动贴边隐藏的窗口（如自动隐藏的任务栏、贴边隐藏的QQ主窗口）一样。
 
-Limitations: 
-  * Doesn't seem to work with a few "special" windows, like Winamp for 
-    example. 
-  * Multi-monitor setup is not supported / tested.
-  * Tested only under Windows XP.
+这小脚本将在任务栏通知区域添加一个图标。右键点击这图标可以找到菜单项“Un-autohide all windows”，当你需要取消所有自动隐藏窗口的自动隐藏状态时请使用此菜单项。
 
-Note: this is actually an AutoHotkey script, compiled into an executable file
-      (see http://www.autohotkey.com/).
+兼容 Windows10。
 
-Contact the author: BoD@JRAF.org.
+局限性： 
+ * 对某些特殊窗口可能无效，如 Winamp。
+ * 未在多显示器场景进行测试，可能不支持。
 
-This program and its source are in the public domain.
+注意：这个小脚本是 ahk 格式的，请先安装 AutoHotkey(http://www.autohotkey.com/) 再运行 "winautohide.ahk" 来使用。
 
-Version history: 
+原作者： BoD@JRAF.org
+
+本程序及其代码均在公共领域，特此说明。
+
+版本历史：
 2008-06-13: v1.00
+2024-03-01: v1.01 hzhbest修改：机制优化，现在在自动隐藏窗口打开菜单时该窗口会保持显示；增加初始隐藏时的过渡移动，让你看清窗口隐藏到哪。
