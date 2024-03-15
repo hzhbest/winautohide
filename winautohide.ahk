@@ -10,7 +10,7 @@
  */
 
 #SingleInstance ignore
-Menu tray, Icon, %A_ScriptDir%\winautohide.ico
+;@Ahk2Exe-SetMainIcon %A_ScriptDir%\winautohide.ico
 
 /*
  * Hotkey bindings
