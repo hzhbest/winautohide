@@ -1,5 +1,5 @@
 /*
- * BoD winautohide v1.01.
+ * BoD winautohide v1.02.
  *
  * This program and its source are in the public domain.
  * Contact BoD@JRAF.org for more information.
