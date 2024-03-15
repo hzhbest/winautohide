@@ -19,6 +19,7 @@
 ## 原作者： BoD@JRAF.org
 
 本程序及其代码均在公共领域，特此说明。
+https://code.google.com/archive/p/winautohide/
 
 ## 版本历史：
 
