@@ -11,7 +11,7 @@
  */
 
 #SingleInstance ignore
-Menu tray, Icon, %A_ScriptDir%\winautohide.ico
+;@Ahk2Exe-SetMainIcon %A_ScriptDir%\winautohide.ico
 
 /*
  * Hotkey bindings
@@ -51,7 +51,7 @@ return ; end of code that is to be executed on script start-up
  * Tray menu implementation.
  */
 menuAbout:
-	MsgBox, 8256, About, BoD winautohide v1.01.`nModded by hzhbest`nhttps://github.com/hzhbest/winautohide`n`nThis program and its source are in the public domain.`nContact BoD@JRAF.org for more information.
+	MsgBox, 8256, About, BoD winautohide v1.02.`nModded by hzhbest`nhttps://github.com/hzhbest/winautohide`n`nThis program and its source are in the public domain.`nContact BoD@JRAF.org for more information.
 return
 
 menuUnautohideAll:
