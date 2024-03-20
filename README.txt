@@ -26,3 +26,4 @@ This program and its source are in the public domain.
 Version history: 
 2008-06-13: v1.00
 2024-03-01: v1.01 Modded by hzhbest: improved mechanism that keep showing autohide window when menu from that window is shown; and pre-hidden movement to the window being hidden by a shortcut so that you see where it will hide.
+2024-03-20: v1.02 Modded by hzhbest: added mechanism that by dragging showing autohide window away you can instantly unhide that window; for that purpose, title style of autohide window changed.
