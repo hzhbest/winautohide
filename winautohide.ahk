@@ -1,12 +1,13 @@
 /*
- * BoD winautohide v1.01.
+ * BoD winautohide v1.02.
  *
  * This program and its source are in the public domain.
  * Contact BoD@JRAF.org for more information.
  *
  * Version history:
  * 2008-06-13: v1.00
- * 2024-03-01: v1.01 Modded by hzhbest
+ * 2024-03-01: v1.01 Modded by hzhbest:
+ * 2024-03-20: v1.02 
  */
 
 #SingleInstance ignore
@@ -32,7 +33,6 @@ Hotkey, #down, toggleWindowDown
  * Timer initialization.
  */
 SetTimer, watchCursor, 300
-
 
 /*
  * Tray menu initialization.
@@ -88,10 +88,22 @@ watchCursor:
 		}
 	} else {
 		if (needHide) {
-			WinMove, ahk_id %needHide%, , hidden_%needHide%_x, hidden_%needHide%_y ; move it to 'hidden' position
-			WinActivate, ahk_id %previousActiveWindow% ; activate previously active window
-			hidden_%needHide% := true
-			needHide := false ; do that only once
+			WinGetPos, now_win_x, now_win_y, , , ahk_id %needHide%
+			If (showing_%needHide%_x !== now_win_x || showing_%needHide%_y !== now_win_y) { ; win moved before hidden
+				curWinId := needHide
+				WinGet winPhid, PID, ahk_id %needHide%
+				curWinPId := winPhid
+				autohide_%curWinId% := false
+				autohide_%curWinPid% := false
+				needHide := false
+				Gosub, unworkWindow
+				hidden_%curWinId% := false
+			} else {
+				WinMove, ahk_id %needHide%, , hidden_%needHide%_x, hidden_%needHide%_y ; move it to 'hidden' position
+				WinActivate, ahk_id %previousActiveWindow% ; activate previously active window
+				hidden_%needHide% := true
+				needHide := false ; do that only once
+			}
 		}
 	}
 return
@@ -184,17 +196,15 @@ return
 workWindow:
 	DetectHiddenWindows, On
 	WinSet, AlwaysOnTop, on, ahk_id %curWinId% ; always-on-top
-	WinHide, ahk_id %curWinId%
-	WinSet, Style, -0xC00000, ahk_id %curWinId% ; no title bar
+	;WinHide, ahk_id %curWinId%
 	WinSet, ExStyle, +0x80, ahk_id %curWinId% ; remove from task bar
-	WinShow, ahk_id %curWinId%
+	;WinShow, ahk_id %curWinId%
 return
 
 unworkWindow:
 	DetectHiddenWindows, On
 	WinSet, AlwaysOnTop, off, ahk_id %curWinId% ; always-on-top
-	WinHide, ahk_id %curWinId%
-	WinSet, Style, +0xC00000, ahk_id %curWinId% ; title bar
+	;WinHide, ahk_id %curWinId%
 	WinSet, ExStyle, -0x80, ahk_id %curWinId% ; remove from task bar
-	WinShow, ahk_id %curWinId%
+	;WinShow, ahk_id %curWinId%
 return
