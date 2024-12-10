@@ -145,6 +145,10 @@ return
 
 toggleWindow:
 	WinGet, curWinId, ID, A
+	WinGetClass, curWinCls, ahk_id %curWinId%
+	if (curWinCls = "WorkerW"){	;ignore the "desktop" window
+		return
+	}
 	WinGet, curWinPId, PID, A
 	autohideWindows = %autohideWindows%,%curWinId%
 
